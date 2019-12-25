@@ -14,9 +14,8 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
     {
       path:'',
-
      // component:HomeComponent
-      loadChildren : './home.module#HomeModule'
+      loadChildren : './home/home.module#HomeModule'
     },
     {
       path:'**',
