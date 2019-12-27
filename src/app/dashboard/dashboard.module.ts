@@ -14,6 +14,7 @@ import { ProfileCardComponent } from './CommonComponents/profile-card/profile-ca
 import { PostComponent } from './CommonComponents/post/post.component';
 import { EditPostComponent } from './CommonComponents/edit-post/edit-post.component';
 import { PageHeaderComponent } from './CommonComponents/page-header/page-header.component';
+import { PostService } from './service/post.service';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { PageHeaderComponent } from './CommonComponents/page-header/page-header.
     CommonModule,
     DashboardRoutingModule,
     SharedModule
-  ]
+  ],
+  providers:[PostService]
 })
 export class DashboardModule { }

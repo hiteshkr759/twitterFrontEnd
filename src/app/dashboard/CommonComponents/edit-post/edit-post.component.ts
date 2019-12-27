@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../service/post.service';
+import { Post } from '../../model/twitter.model';
 
 @Component({
   selector: 'app-edit-post',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPostComponent implements OnInit {
 
-  constructor() { }
+  editPost :  Post
+
+  constructor(private readonly postService : PostService) { }
 
   ngOnInit() {
+
+    this.listenEditPost();
+
+  }
+
+  listenEditPost(){
+    this.postService.editSelectedPost.subscribe((post : Post) => {
+      this.editPost = post;
+    })
   }
 
 }
