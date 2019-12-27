@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { DOCUMENT } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document,private readonly authService : AuthService ) { }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -22,5 +23,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  logOut(){
+    this.authService.logout();
+  }
+
 
 }

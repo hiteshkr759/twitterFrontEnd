@@ -5,9 +5,11 @@ import { FollowComponent } from './pages/follow/follow.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UnfollowComponent } from './pages/unfollow/unfollow.component';
 import { SchedulePostsComponent } from './pages/schedule-posts/schedule-posts.component';
+import { RouteGuardService } from '../service/route-guard.service';
 const routes: Routes = [{
   path:'',
   component : DashboardComponent,
+  canActivate:[RouteGuardService],
   children:[{
     path:'home',
     component : HomeComponent

@@ -6,21 +6,21 @@
     </div>
     <div class="row justify-content-md-center">
         <div class="login-with-social-network col col-lg-4">
-            <button class="btn btn-primary btn-block mb-3" type="button">Sign In with Twitter</button>
-            <button class="btn btn-primary btn-block mb-3" type="button">Sign In with Facebook</button>
+            <button class="btn btn-primary btn-block mb-3" type="button" (click)="onSignInWithTwitter()" >Sign In with Twitter</button>
+            <button class="btn btn-primary btn-block mb-3" type="button" (click)="onSignInWithTwitter()">Sign In with Facebook</button>
         </div>
         <div class="seprator-wrapper col-md-auto">
             <span class="vertical-line"></span>
             <span class="text">OR</span>
         </div>
-        <div class="user-login col col-lg-4">
+        <div class="user-in col col-lg-4">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Username">
             </div>
             <div class="input-group mb-3">
                 <input type="password" class="form-control" placeholder="Password" >
             </div>
-            <button type="button" class="btn btn-primary btn-block mb-1">Submit</button>
+            <button type="button" class="btn btn-primary btn-block mb-1" (click)="onSubmit()" >Submit</button>
             <p class="mb-1">
                 <small>
                     By clicking Sign in, I agree to Terms, including the payment terms, and Privacy Policy.
