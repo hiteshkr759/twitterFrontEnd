@@ -8,7 +8,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 const importExport = [
   MatSidenavModule,
   MatListModule,
@@ -17,7 +17,9 @@ const importExport = [
   MatMenuModule,
   MatButtonModule,
   MatInputModule,
-  FormsModule
+  FormsModule,
+  DlDateTimeDateModule,  // <--- Determines the data type of the model
+  DlDateTimePickerModule,
 ]
 
 @NgModule({

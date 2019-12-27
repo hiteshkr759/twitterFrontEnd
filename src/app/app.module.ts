@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,11 @@ import { RouterModule } from '@angular/router';
       path:'',
      // component:HomeComponent
       loadChildren : './home/home.module#HomeModule'
+    },
+    {
+      path:'dashboard',
+     // component:HomeComponent
+      loadChildren : './dashboard/dashboard.module#DashboardModule'
     },
     {
       path:'**',

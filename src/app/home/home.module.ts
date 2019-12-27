@@ -10,6 +10,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { PrivacyPolicesComponent } from './pages/privacy-polices/privacy-polices.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RegisterComponent } from './pages/register/register.component';
     ContactUsComponent,
     PrivacyPolicesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PagenotfoundComponent
   ],
   imports: [
     CommonModule,
