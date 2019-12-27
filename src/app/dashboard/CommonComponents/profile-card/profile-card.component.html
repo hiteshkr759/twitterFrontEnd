@@ -1,0 +1,24 @@
+<div class="bg-white p-3 h-100 shadow-sm rounded user profile-card">
+	<p class="text-right select-wrapper m-0">
+			<mat-checkbox #checkbox (change)="handleCheckbox(checkbox.checked)"></mat-checkbox>
+	</p>
+	<p class="m-0">
+		<a href="../pages/profile.html">
+			<img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" [src]="user.profile_image_url_https" [alt]="user.screen_name">
+		</a>
+	</p>
+	
+	<p class="m-0 name">
+		<a href="../pages/profile.html">
+			{{user.name}}
+		</a>
+	</p>
+	<p class="screen-name mb-1">
+		<small>
+		@{{user.screen_name}}
+		</small>
+	</p>
+	<p class="fs--2 mt-1 small">
+		<span>{{user.description}}</span>
+	</p>
+</div>

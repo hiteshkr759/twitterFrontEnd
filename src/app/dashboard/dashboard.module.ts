@@ -10,10 +10,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { UnfollowComponent } from './pages/unfollow/unfollow.component';
 import { SchedulePostsComponent } from './pages/schedule-posts/schedule-posts.component';
+import { ProfileCardComponent } from './CommonComponents/profile-card/profile-card.component';
+import { PostComponent } from './CommonComponents/post/post.component';
+import { EditPostComponent } from './CommonComponents/edit-post/edit-post.component';
+import { PageHeaderComponent } from './CommonComponents/page-header/page-header.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, FollowComponent, HeaderComponent, SidebarComponent, HomeComponent, UnfollowComponent, SchedulePostsComponent],
+  declarations: [DashboardComponent, FollowComponent, HeaderComponent, SidebarComponent, HomeComponent, UnfollowComponent, SchedulePostsComponent, ProfileCardComponent, PostComponent, EditPostComponent, PageHeaderComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

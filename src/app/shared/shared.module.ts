@@ -7,9 +7,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 const importExport = [
+  FormsModule,
+  DlDateTimeDateModule,  // <--- Determines the data type of the model
+  DlDateTimePickerModule,
   MatSidenavModule,
   MatListModule,
   MatToolbarModule,
@@ -17,9 +21,7 @@ const importExport = [
   MatMenuModule,
   MatButtonModule,
   MatInputModule,
-  FormsModule,
-  DlDateTimeDateModule,  // <--- Determines the data type of the model
-  DlDateTimePickerModule,
+  MatCheckboxModule
 ]
 
 @NgModule({
