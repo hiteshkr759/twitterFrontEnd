@@ -7,7 +7,7 @@
             <p class="m-0">{{pageHeaderData.body}}</p>
         </div>
     </div>
-    <div class="label align-self-center" *ngIf="pageHeaderData.buttons.length">
+    <div class="label align-self-center" *ngIf="pageHeaderData.buttons && pageHeaderData.buttons.length">
         <button class="ml-2" mat-raised-button *ngFor="let button of pageHeaderData.buttons" (click)="handleAction(button)">
             {{button}}
         </button>

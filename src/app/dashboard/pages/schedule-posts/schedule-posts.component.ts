@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../../model/twitter.model';
-import { now } from 'moment';
+import { PageHeaderData } from '../../CommonComponents/page-header/page-header.component';
 
 @Component({
   selector: 'app-schedule-posts',
@@ -10,11 +10,21 @@ import { now } from 'moment';
 export class SchedulePostsComponent implements OnInit {
 
   allPosts: Post[] = [];
+  pageHeaderData : PageHeaderData;
 
   constructor() { }
 
   ngOnInit() {
     this.loadAllPost();
+    this.loadPageHeading();
+  }
+
+  loadPageHeading(){
+    const pageHeaderData :  PageHeaderData = {
+      heading : 'Post',
+      body : 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
+    };
+    this.pageHeaderData = pageHeaderData;
   }
 
   loadAllPost(){

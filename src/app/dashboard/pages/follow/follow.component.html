@@ -1,15 +1,15 @@
 <div class="page section mt-4">
-		<app-page-header  [pageHeaderData]="pageHeaderData" (action)="handleHeaderAction($event)" ></app-page-header>
+	<app-page-header  [pageHeaderData]="pageHeaderData" (action)="handleHeaderAction($event)" ></app-page-header>
     <div class="row text-center fs--1" *ngIf="followerList.length > 0">
-			<div class="col-6 col-md-4 col-lg-3 col-xxl-2 mt-3 mb-3" *ngFor="let user of followerList">
-				<app-profile-card [user]="user" (profileChecked)="handleProfileChecked($event)"></app-profile-card>
+		<div class="col-6 col-md-4 col-lg-3 col-xxl-2 mt-3 mb-3" *ngFor="let user of followerList">
+			<app-profile-card [user]="user" (profileChecked)="handleProfileChecked($event)"></app-profile-card>
+		</div>
+	</div>
+	<div class="row text-center justify-content-center d-flex" *ngIf="followerList.length == 0" >
+		<div class="col-6">
+			<div class="no-user-card text-center card p-2 m-2">
+				No User Found
 			</div>
 		</div>
-		<div class="row text-center justify-content-center d-flex" *ngIf="followerList.length == 0" >
-			<div class="col-6">
-				<div class="no-user-card text-center card p-2 m-2">
-					No User Found
-				</div>
-			</div>
-		</div>
+	</div>
 </div>
