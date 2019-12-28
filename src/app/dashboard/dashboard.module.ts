@@ -15,10 +15,11 @@ import { PostComponent } from './CommonComponents/post/post.component';
 import { EditPostComponent } from './CommonComponents/edit-post/edit-post.component';
 import { PageHeaderComponent } from './CommonComponents/page-header/page-header.component';
 import { PostService } from './service/post.service';
+import { FileUploadComponent } from './CommonComponents/file-upload/file-upload.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, FollowComponent, HeaderComponent, SidebarComponent, HomeComponent, UnfollowComponent, SchedulePostsComponent, ProfileCardComponent, PostComponent, EditPostComponent, PageHeaderComponent],
+  declarations: [DashboardComponent, FollowComponent, HeaderComponent, SidebarComponent, HomeComponent, UnfollowComponent, SchedulePostsComponent, ProfileCardComponent, PostComponent, EditPostComponent, PageHeaderComponent, FileUploadComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

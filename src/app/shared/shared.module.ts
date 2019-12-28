@@ -8,10 +8,13 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { FileUploadDirective } from '../directive/file-upload.directive';
+
 const importExport = [
   FormsModule,
+  ReactiveFormsModule,
   DlDateTimeDateModule,  // <--- Determines the data type of the model
   DlDateTimePickerModule,
   MatSidenavModule,
@@ -25,13 +28,16 @@ const importExport = [
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FileUploadDirective
+  ],
   imports: [
     CommonModule,
     ...importExport
   ],
   exports:[
-   ...importExport
+   ...importExport,
+   FileUploadDirective
   ]
 })
 export class SharedModule { }

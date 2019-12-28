@@ -14,7 +14,7 @@ export interface User {
 }
 
 export interface Post{
-    id: number;
+    id?: number;
     message?:string;
     isMultiMedia ?: boolean;
     mediaUrl?:string;

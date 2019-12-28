@@ -2,3 +2,8 @@
 @import '~open-iconic/font/css/open-iconic-bootstrap.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.clickable{
+    cursor: pointer;
+   // border: 1px solid green;
+}

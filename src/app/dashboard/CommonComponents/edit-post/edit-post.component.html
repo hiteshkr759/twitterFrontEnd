@@ -1,1 +1,45 @@
-Edit Post => {{editPost | json}}
+<div class="card mb-3 new-post">
+	<div class="card-header bg-light">
+		<div class="media align-items-center">
+			<div class="avatar avatar-m">
+				<img class="rounded-circle avatar" src="https://pbs.twimg.com/profile_images/927241270975651840/xcbMX4Pp_bigger.jpg" alt="">
+			</div>
+			<div class="media-body ml-2">
+				<h5 class="mb-0 fs-0"> {{ editPost && editPost.id ?  'Edit Post' : 'Create Post' }} </h5>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-0">
+		<form [formGroup]="postForm"  (ngSubmit)="onPostSubmit()">
+			<textarea class="form-control border-0 rounded-0 resize-none" 
+			placeholder="What's happening?"
+			rows="4" 
+			formControlName="message"
+			></textarea>
+			<div class="row no-gutters justify-content-between p-3">
+				<div class="col-12">
+					<app-file-upload (onFileUpload)="handleFileUpload($event)"></app-file-upload>
+				</div>
+			</div>
+			<div class="row no-gutters justify-content-between p-3 button-wrapper">
+					<div class="col">
+							<button class="btn btn-secondary" type="reset">Reset</button>
+					</div>
+					<div class="col text-right">
+							<div class="btn-group">
+									<button class="btn btn-success" type="button">Schedule</button>
+									<button class="btn btn-primary" type="submit">Post</button>
+							</div>
+																					<!-- <dl-date-time-picker
+									startView="day"
+									maxView="year"
+									minView="minute"
+									minuteStep="5"
+									[(ngModel)]="selectedDate"
+							>
+							</dl-date-time-picker> -->
+					</div>
+			</div>
+		</form>
+	</div>
+</div>

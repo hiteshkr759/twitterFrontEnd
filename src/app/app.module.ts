@@ -9,7 +9,7 @@ import { RouteGuardService } from './service/route-guard.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
