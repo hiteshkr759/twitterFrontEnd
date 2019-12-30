@@ -14,7 +14,10 @@ export class EditPostComponent implements OnInit,OnDestroy {
   editPost :  Post;
   editingPost : boolean = false;
   postForm : FormGroup;
-  uploadedFiles : FileList;
+  uploadedFiles : FileList[] = [];
+
+  isScheduled:boolean = false;
+
 
   editSelectedPostSubscrption : Subscription;
 
@@ -33,7 +36,9 @@ export class EditPostComponent implements OnInit,OnDestroy {
   inilizeForm(){
     this.postForm = new FormGroup({
       id : new FormControl('-1',[Validators.required]),
-      message : new FormControl('',[Validators.required])
+      message : new FormControl('',[Validators.required]),
+      postDate : new FormControl('',[]),
+      postTime : new FormControl('',[])
     });
   }
 
@@ -49,18 +54,25 @@ export class EditPostComponent implements OnInit,OnDestroy {
   }
 
   onPostSubmit(){
+    console.log('Raw Form Data is submiiting',this.postForm.value);
     const postData : Post = {
       id : this.postForm.get('id').value,
-      message : this.postForm.get('message').value
+      message : this.postForm.get('message').value,
     }
     if( this.uploadedFiles.length > 0 ){
       postData.isMultiMedia = true;
     }
-    console.log('Form is submiiting',postData);
+    console.log('Process Form Data is submiiting',postData);
   }
 
+  handleSchedule(){
+    this.isScheduled = this.isScheduled ? false : true ;
+  }
+
+
+
   handleFileUpload(fileList : FileList){
-    this.uploadedFiles = fileList;
+    //this.uploadedFiles = [...fileList] ;
   }
 
 

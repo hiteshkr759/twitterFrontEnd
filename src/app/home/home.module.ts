@@ -11,6 +11,7 @@ import { PrivacyPolicesComponent } from './pages/privacy-polices/privacy-polices
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { HomeService } from './service/home.service';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.compone
   imports: [
     CommonModule,
     HomeRoutingModule
-  ]
+  ],
+  providers:[HomeService]
 })
 export class HomeModule { }

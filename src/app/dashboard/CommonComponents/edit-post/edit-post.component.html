@@ -21,14 +21,33 @@
 					<app-file-upload (onFileUpload)="handleFileUpload($event)"></app-file-upload>
 				</div>
 			</div>
+			<div class="row no-gutters justify-content-between py-0 px-3 button-wrapper" *ngIf="isScheduled">
+				<div class="col-12 d-flex">
+					<div class="col pl-0">
+						<div class="form-group">
+							<mat-datepicker #postDate></mat-datepicker>
+							<label for="post-date">Post Date</label>
+							<input class="form-control" formControlName="postDate" id="post-date" [matDatepicker]="postDate" type="text" placeholder="m/d/y" (click)="postDate.open()">
+						</div>
+					</div>
+					<div class="col pr-0">
+						<div class="form-group">
+							<label for="post-time">Post Time</label>
+							<input type="time" class="form-control" formControlName="postTime" id="post-time" placeholder="HH:MM" step="300">
+							<!-- <input class="form-control" id="post-date" [matDatepicker]="postDate" type="text" placeholder="d/m/y" readonly="readonly" (click)="postDate.open()"> -->
+						</div>
+					</div>
+				</div>
+				
+			</div>
 			<div class="row no-gutters justify-content-between p-3 button-wrapper">
 					<div class="col">
-							<button class="btn btn-secondary" type="reset">Reset</button>
+							<button class="btn btn-outline-secondary" type="reset">Reset</button>
 					</div>
 					<div class="col text-right">
 							<div class="btn-group">
-									<button class="btn btn-success" type="button">Schedule</button>
-									<button class="btn btn-primary" type="submit">Post</button>
+									<button class="btn btn-outline-success" type="button" (click)="handleSchedule()" >Schedule It</button>
+									<button class="btn btn-outline-primary" type="submit">{{isScheduled ? 'Schedule' : 'Post'}}</button>
 							</div>
 																					<!-- <dl-date-time-picker
 									startView="day"

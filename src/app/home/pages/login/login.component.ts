@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import { HomeService } from '../../service/home.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private readonly authService  :AuthService) { }
+  constructor(private readonly authService  :AuthService, private readonly homeService : HomeService) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSignInWithTwitter(){
-    console.log('Signing with Twitter');
+   // console.log('Signing with Twitter');
+    this.homeService.loginWithTwitter()
+      .subscribe(response => {
+        console.log('Response',response);
+      })
   }
   
 }

@@ -1,4 +1,4 @@
-<div class="bg-white p-3 h-100 shadow-sm rounded user profile-card">
+<div class="bg-white p-3 h-100   user profile-card card">
 	<p class="text-right select-wrapper m-0">
 			<mat-checkbox #checkbox (change)="handleCheckbox(checkbox.checked)"></mat-checkbox>
 	</p>
@@ -18,7 +18,17 @@
 		@{{user.screen_name}}
 		</small>
 	</p>
-	<p class="fs--2 mt-1 small">
+	<p class="fs--2 mt-1">
 		<span>{{user.description}}</span>
 	</p>
 </div>
+
+<!-- <div class="col-6 col-md-4 col-lg-3 col-xxl-2 mb-1">
+	<div class="bg-white p-3 h-100">
+		<a href="../pages/profile.html">
+			<img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="../assets/img/team/1.jpg" alt="" width="100">
+		</a>
+	  <h6 class="mb-1"><a href="../pages/profile.html">Emilia Clarke</a></h6>
+	  <p class="fs--2 mb-1"><a class="text-700" href="#!">Technext limited</a></p>
+	</div>
+  </div> -->

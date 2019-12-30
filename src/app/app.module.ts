@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './service/auth.service';
 import { RouteGuardService } from './service/route-guard.service';
+import { ApiService } from './service/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import { RouteGuardService } from './service/route-guard.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
     {
@@ -34,7 +37,7 @@ import { RouteGuardService } from './service/route-guard.service';
     }
   ])
   ],
-  providers: [AuthService,RouteGuardService],
+  providers: [AuthService,RouteGuardService,ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
