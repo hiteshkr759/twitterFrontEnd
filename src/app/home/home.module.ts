@@ -12,6 +12,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { HomeService } from './service/home.service';
+import { CallbackComponent } from './pages/callback/callback.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { HomeService } from './service/home.service';
     PrivacyPolicesComponent,
     LoginComponent,
     RegisterComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    CallbackComponent
   ],
   imports: [
     CommonModule,

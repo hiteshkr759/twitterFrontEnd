@@ -170,7 +170,7 @@ export class ApiService {
   }
 
   handleExceptions(res: any) {
-    console.log("AJAX SERVICE -- handleExceptions");
+    console.log("AJAX SERVICE -- handleExceptions",res);
     const errorMessage = {
       status: res.error.status,
       errorMessage: res.error.result

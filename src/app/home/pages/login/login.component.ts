@@ -27,7 +27,11 @@ export class LoginComponent implements OnInit {
    // console.log('Signing with Twitter');
     this.homeService.loginWithTwitter()
       .subscribe(response => {
-        console.log('Response',response);
+        console.log(response);
+        const {logingUrl,oauthSecret,oauthToken} = response;
+        localStorage.setItem('oauthSecret',oauthSecret);
+        localStorage.setItem('oauthToken',oauthToken);
+        window.location.href = logingUrl;
       })
   }
   

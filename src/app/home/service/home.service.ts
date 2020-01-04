@@ -14,4 +14,9 @@ export class HomeService {
     return this.api.getWithParam({},path);
   }
 
+  getTwitterUser(params){
+    const path:string  = 'api/v1/twitter/callback';
+    return this.api.getWithParam(params,path);
+  }
+
 }
