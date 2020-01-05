@@ -15,6 +15,8 @@ import { FileUploadDirective } from '../directive/file-upload.directive';
 import { ChartsModule } from 'ng2-charts';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ApiService } from '../service/api.service';
+import { FilterUserPipe } from './pipe/filter-user.pipe';
+import { TwitterIMGUrlPipe } from './pipe/twitter-imgurl.pipe';
 const importExport = [
   ChartsModule,
   FormsModule,
@@ -35,7 +37,9 @@ const importExport = [
 
 @NgModule({
   declarations: [
-    FileUploadDirective
+    FileUploadDirective,
+    FilterUserPipe,
+    TwitterIMGUrlPipe
   ],
   imports: [
     CommonModule,
@@ -43,7 +47,9 @@ const importExport = [
   ],
   exports:[
    ...importExport,
-   FileUploadDirective
+   FileUploadDirective,
+   FilterUserPipe,
+   TwitterIMGUrlPipe
   ],
   providers:[MatDatepickerModule,ApiService]
 })

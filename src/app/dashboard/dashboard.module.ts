@@ -16,15 +16,33 @@ import { EditPostComponent } from './CommonComponents/edit-post/edit-post.compon
 import { PageHeaderComponent } from './CommonComponents/page-header/page-header.component';
 import { PostService } from './service/post.service';
 import { FileUploadComponent } from './CommonComponents/file-upload/file-upload.component';
+import { DashboardService } from './service/dashboard.service';
+import { ProfileSmallComponent } from './CommonComponents/profile-small/profile-small.component';
+import { SearchComponent } from './pages/search/search.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, FollowComponent, HeaderComponent, SidebarComponent, HomeComponent, UnfollowComponent, SchedulePostsComponent, ProfileCardComponent, PostComponent, EditPostComponent, PageHeaderComponent, FileUploadComponent],
+  declarations: [
+    DashboardComponent, 
+    FollowComponent, 
+    HeaderComponent,
+    SidebarComponent, 
+    HomeComponent, 
+    UnfollowComponent, 
+    SchedulePostsComponent,
+    ProfileCardComponent,
+    PostComponent,
+    EditPostComponent,
+    PageHeaderComponent,
+    FileUploadComponent,
+    ProfileSmallComponent,
+    SearchComponent
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     SharedModule
   ],
-  providers:[PostService]
+  providers:[PostService,DashboardService]
 })
 export class DashboardModule { }

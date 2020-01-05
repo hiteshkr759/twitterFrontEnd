@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { HomeService } from '../../service/home.service';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,17 +11,33 @@ import { HomeService } from '../../service/home.service';
 })
 export class LoginComponent implements OnInit {
 
+  loginForm : FormGroup;
+
   constructor(private readonly authService  :AuthService, private readonly homeService : HomeService) { }
 
   ngOnInit() {
+    this.inilizeForm();
+  }
+
+  inilizeForm(){
+    this.loginForm = new FormGroup({
+      email :  new FormControl('hiteshkr759@gmail.com',[Validators.required,Validators.email]),
+      password : new FormControl('123',[Validators.required]),
+    });
   }
 
   onSubmit(){
-    console.log('onSubmit')
-    const data = {
-      'userName': 'hiteshkr759Test'
-    }
-    this.authService.login(data);
+    const loginDate = this.loginForm.value;
+    this.homeService.loginWithEmail(loginDate).subscribe(response => {
+      const {username,email,token,type} = response;
+      const userLoginDetail = {
+        username,
+        email,
+        token : type +' '+ token,
+        loginUsing : 'Email'
+      }
+      this.authService.login(userLoginDetail);
+    })
   }
 
   onSignInWithTwitter(){
@@ -28,9 +45,8 @@ export class LoginComponent implements OnInit {
     this.homeService.loginWithTwitter()
       .subscribe(response => {
         console.log(response);
-        const {logingUrl,oauthSecret,oauthToken} = response;
+        const {logingUrl,oauthSecret} = response;
         localStorage.setItem('oauthSecret',oauthSecret);
-        localStorage.setItem('oauthToken',oauthToken);
         window.location.href = logingUrl;
       })
   }

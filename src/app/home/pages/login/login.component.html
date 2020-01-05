@@ -14,13 +14,15 @@
             <span class="text">OR</span>
         </div>
         <div class="user-in col col-lg-4">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username">
-            </div>
-            <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password" >
-            </div>
-            <button type="button" class="btn btn-primary btn-block mb-1" (click)="onSubmit()" >Submit</button>
+            <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password" >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-1" >Submit</button>
+            </form>
             <p class="mb-1">
                 <small>
                     By clicking Sign in, I agree to Terms, including the payment terms, and Privacy Policy.

@@ -1,5 +1,6 @@
 export interface User {
     id?:number;
+    id_str? : string;
     userName ?: string;
     name?:string;
     screen_name?:string;

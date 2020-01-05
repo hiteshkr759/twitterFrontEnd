@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../service/home.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-callback',
@@ -9,7 +10,11 @@ import { HomeService } from '../../service/home.service';
 })
 export class CallbackComponent implements OnInit {
 
-  constructor(private readonly route: ActivatedRoute,private readonly homeService : HomeService) { }
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly homeService : HomeService,
+    private readonly authService : AuthService,
+  ) { }
 
   ngOnInit() {
     this.getTwitterUserToken();
@@ -20,9 +25,18 @@ export class CallbackComponent implements OnInit {
     const oauth_verifier : string = this.route.snapshot.queryParamMap.get('oauth_verifier');
     const oauthSecret = localStorage.getItem('oauthSecret');
     this.homeService.getTwitterUser({oauth_token,oauth_verifier,oauthSecret}).subscribe((response)=>{
-      console.log('response',response);
+      console.log('CallbackResponse',response);
+      localStorage.removeItem('oauthSecret');
+      const {twitter_screenName,twitter_id,token} = response;
+      const userLoginDetail = {
+        twitter_screenName,
+        twitter_id,
+        token,
+        loginUsing : 'Twitter'
+      }
+      this.authService.login(userLoginDetail);
     });
-    console.log(oauth_token,oauth_verifier);
+    //console.log(oauth_token,oauth_verifier);
   }
 
 }

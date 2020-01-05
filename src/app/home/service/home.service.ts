@@ -8,6 +8,11 @@ export class HomeService {
 
   constructor(private readonly api: ApiService) { }
 
+  loginWithEmail(params){
+    const path : string  = 'api/v1/users/login';
+    return this.api.postData(params,path);
+  }
+
   loginWithTwitter(){
     //console.log('Service Login with Twitter');
     const path : string  = 'api/v1/twitter/login'; 
@@ -18,5 +23,13 @@ export class HomeService {
     const path:string  = 'api/v1/twitter/callback';
     return this.api.getWithParam(params,path);
   }
+
+
+  registerUser(params){
+    const path : string = 'api/v1/users/register';
+    return this.api.postData(params,path);
+  }
+
+
 
 }

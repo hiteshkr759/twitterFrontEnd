@@ -8,6 +8,7 @@ import { AuthService } from './service/auth.service';
 import { RouteGuardService } from './service/route-guard.service';
 import { ApiService } from './service/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorProviders } from './provider/interceptor.provider';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     }
   ])
   ],
-  providers: [AuthService,RouteGuardService,ApiService],
+  providers: [AuthService,RouteGuardService,ApiService,HttpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

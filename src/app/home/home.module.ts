@@ -13,6 +13,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 import { HomeService } from './service/home.service';
 import { CallbackComponent } from './pages/callback/callback.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CallbackComponent } from './pages/callback/callback.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     HomeRoutingModule
   ],
   providers:[HomeService]

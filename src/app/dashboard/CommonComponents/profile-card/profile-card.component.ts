@@ -6,6 +6,11 @@ export interface ProfileEvent {
   checkedStatus : boolean;
 }
 
+export interface ProfileCardConfig{
+  takeAction? : Boolean;
+  showCounts?: Boolean;
+}
+
 @Component({
   selector: 'app-profile-card',
   templateUrl: './profile-card.component.html',
@@ -14,11 +19,21 @@ export interface ProfileEvent {
 export class ProfileCardComponent implements OnInit {
 
   @Input() user: User;
-  @Output() profileChecked: EventEmitter<ProfileEvent> = new EventEmitter();
+  @Input() config? : ProfileCardConfig;
+  @Output() profileChecked?: EventEmitter<ProfileEvent> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+    this.loadConfig();
+  }
+
+  loadConfig(){
+    const defaultConfig : ProfileCardConfig = {
+      takeAction : false,
+      showCounts : true,
+    }
+    this.config = {...defaultConfig,...this.config}
   }
 
   handleCheckbox(isChecked : boolean){
