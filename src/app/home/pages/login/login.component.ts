@@ -45,9 +45,13 @@ export class LoginComponent implements OnInit {
     this.homeService.loginWithTwitter()
       .subscribe(response => {
         console.log(response);
-        const {logingUrl,oauthSecret} = response;
-        localStorage.setItem('oauthSecret',oauthSecret);
-        window.location.href = logingUrl;
+        if(!response.error){
+          const {logingUrl,oauthSecret} = response;
+          localStorage.setItem('oauthSecret',oauthSecret);
+          window.location.href = logingUrl;
+        }else{
+          console.log('Api Is Not Working');
+        };
       })
   }
   

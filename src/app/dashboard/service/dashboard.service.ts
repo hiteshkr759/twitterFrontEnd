@@ -24,4 +24,14 @@ export class DashboardService {
     return this.api.postData(params,path);
   }
 
+  loadPotentailFollower(params:any){
+    const path:string = 'api/v1/twitter/potentialFollower';
+    return this.api.getWithParam(params,path);
+  }
+
+  loadPotentailUnfollower(){
+    const path:string = 'api/v1/twitter/potentialUnfollower';
+    return this.api.getWithParam({},path);
+  }
+
 }

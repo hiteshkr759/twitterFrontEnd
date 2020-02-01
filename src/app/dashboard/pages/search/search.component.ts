@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
   loadPageHeading(){
     const pageHeaderData :  PageHeaderData = {
       heading : 'Search',
-      body : 'Search User from Twitter',
+      body : 'Search User',
     };
     this.pageHeaderData = pageHeaderData;
   }
@@ -35,6 +35,11 @@ export class SearchComponent implements OnInit {
   listenForSeachQuery(){
     this.route.params.subscribe(params => {
       this.searchQuery = params['searchQuery'];
+      let pageHeadingBody = 'Search User' 
+      if(this.searchQuery != ''){
+        pageHeadingBody = `Search Result for keyword "${this.searchQuery}"`
+      }
+      this.pageHeaderData.body = pageHeadingBody;
       this.searchUser();
     });
   }

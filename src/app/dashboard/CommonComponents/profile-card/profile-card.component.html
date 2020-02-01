@@ -1,6 +1,7 @@
 <div class="bg-white p-3 h-100   user profile-card card">
+	<small class="follow-status border" *ngIf="user.followed_by">Follows you</small>
 	<p class="text-right select-wrapper m-0">
-		<ng-container [ngSwitch]="config.action?'true':'false'">
+		<ng-container [ngSwitch]="config.takeAction?'true':'false'">
 			<ng-container *ngSwitchCase="'true'">
 				<mat-checkbox #checkbox (change)="handleCheckbox(checkbox.checked)"></mat-checkbox>
 			</ng-container>

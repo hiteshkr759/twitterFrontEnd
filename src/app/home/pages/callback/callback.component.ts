@@ -25,6 +25,7 @@ export class CallbackComponent implements OnInit {
     const oauth_verifier : string = this.route.snapshot.queryParamMap.get('oauth_verifier');
     const oauthSecret = localStorage.getItem('oauthSecret');
     this.homeService.getTwitterUser({oauth_token,oauth_verifier,oauthSecret}).subscribe((response)=>{
+      
       console.log('CallbackResponse',response);
       localStorage.removeItem('oauthSecret');
       const {twitter_screenName,twitter_id,token} = response;

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileEvent } from '../../CommonComponents/profile-card/profile-card.component';
+import { ProfileEvent, ProfileCardConfig } from '../../CommonComponents/profile-card/profile-card.component';
 import { PageHeaderData } from '../../CommonComponents/page-header/page-header.component';
 import { User } from '../../model/twitter.model';
+import { DashboardService } from '../../service/dashboard.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-follow',
@@ -11,17 +13,40 @@ import { User } from '../../model/twitter.model';
 export class FollowComponent implements OnInit {
 
   pageHeaderData : PageHeaderData;
+  twitterHandle : String;
+
+  searchPotentialFollowerForm : FormGroup;
+
+  cardConfig : ProfileCardConfig = {
+    takeAction : true
+  };
 
   followerList : User[] = [];
 
   selectedList : number[] = [];
 
-  constructor() { }
+  constructor(private readonly dashboardService : DashboardService) { }
 
   ngOnInit() {
-    this.loadFollowerList();
     this.loadPageHeading();
+    this.initSearchPotentialFollowerForm();
+    //this.loadFollowerList();
   }
+
+  initSearchPotentialFollowerForm(){
+    this.searchPotentialFollowerForm = new FormGroup({
+      'searchHandle' : new FormControl('')
+    })
+  }
+
+  onSearchPotentialFollowerFormSubmit(){
+    const {searchHandle} = this.searchPotentialFollowerForm.value;
+    this.twitterHandle = searchHandle;
+    this.loadFollowerList();
+    //console.log(this.searchPotentialFollowerForm.value);
+  }
+
+
 
   loadPageHeading(){
     const pageHeaderData :  PageHeaderData = {
@@ -33,21 +58,15 @@ export class FollowComponent implements OnInit {
   }
 
   loadFollowerList(){
-    this.followerList = [
-        {
-        id:12345,
-        name:'Hitesh Kumar',
-        screen_name : 'hiteshr759',
-        profile_image_url_https:'https://pbs.twimg.com/profile_images/927241270975651840/xcbMX4Pp_bigger.jpg',
-        description:'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
-      },{
-        id:8888,
-        name:'Hitesh Kumar 2',
-        screen_name : 'hiteshr9406',
-        profile_image_url_https:'https://pbs.twimg.com/profile_images/927241270975651840/xcbMX4Pp_bigger.jpg',
-        description:'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+    const params = {
+      'twitterHandle' : this.twitterHandle
+    }
+    this.dashboardService.loadPotentailFollower(params).subscribe(response => {
+      //console.log(response);
+      if(!response.error){
+        this.followerList = response;
       }
-    ]
+    });
   }
 
   

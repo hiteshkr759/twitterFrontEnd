@@ -51,7 +51,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['dashboard/search',searchQuery]);
   }
   
-
   logOut(){
     this.authService.logout();
   }
