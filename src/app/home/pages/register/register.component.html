@@ -5,28 +5,32 @@
         <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
     </div>
     <div class="row justify-content-md-center">
+        
         <div class="login-with-social-network col col-lg-6">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username">
-            </div>
-            <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password" >
-            </div>
-            <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Confirm Password" >
-            </div>
-            <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email Id" >
-            </div>
-            <button type="button" class="btn btn-primary btn-block mb-1">Register</button>
-            <p class="mb-1">
-                <small>
-                    By clicking Register, I agree to Terms, including the payment terms, and Privacy Policy.
-                </small>
-            </p>
+            <form [formGroup]="registerForm"  (ngSubmit)="onRegister()">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"  formControlName="username" placeholder="Username">
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"  formControlName="password" placeholder="Password" >
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"  formControlName="confirmPassword" placeholder="Confirm Password" >
+                </div>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Email Id" formControlName="email" >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-1">Register</button>
+                <p class="mb-1">
+                    <small>
+                        By clicking Register, I agree to Terms, including the payment terms, and Privacy Policy.
+                    </small>
+                </p>
             <!-- <button class="btn btn-primary btn-block mb-3" type="button">Sign In with Twitter</button>
             <button class="btn btn-primary btn-block mb-3" type="button">Sign In with Facebook</button> -->
+            </form>
         </div>
+      
         <div class="user-login col col-lg-6">
             <div class="">
                 <p>

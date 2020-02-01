@@ -1,0 +1,43 @@
+<div class="card mb-3 post">
+	<div class="card-header bg-light d-flex justify-content-between">
+		<div class="media align-items-center">
+			<div class="avatar avatar-m">
+				<img class="rounded-circle avatar" [src]="post.authorAvatarUrl" [alt]="post.authorName">
+			</div>
+			<div class="media-body ml-2">
+				<h5 class="mb-0 fs-0">
+					{{post.authorName}} <small>@{{post.authorScreenName}}</small>
+				</h5>
+				<p class="mb-0 small">
+					{{post.postdate}}
+				</p>
+			</div>
+		</div>
+		<div class="button-wrapper">
+			<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item (click)="handleMessageAction('edit')">
+					<mat-icon>notifications_off</mat-icon>
+					<span>Edit</span>
+				</button>
+				<button mat-menu-item (click)="handleMessageAction('cancel')">
+					<mat-icon>notifications_off</mat-icon>
+					<span>Cancel</span>
+				</button>
+			</mat-menu>
+		</div>
+	</div>
+	<div class="card-body">
+		<p class="mb-0">
+		{{post.message}}
+		</p>
+		<ng-container *ngIf="post.isMultiMedia">
+			<h2>Need to implments the logic for media</h2>
+			<video class="post-video-wrapper" controls>
+				<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+			</video>
+		</ng-container>
+	</div>
+</div>

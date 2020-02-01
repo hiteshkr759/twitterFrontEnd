@@ -1,0 +1,9 @@
+.dropzone{
+   min-height: 75px;
+   border-width: 3px !important;
+   border-style: dashed !important;
+   width: 100%; 
+   &.active{
+       border-style: solid !important;
+   }
+}

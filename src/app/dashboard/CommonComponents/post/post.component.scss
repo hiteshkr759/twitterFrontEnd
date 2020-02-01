@@ -1,0 +1,10 @@
+
+.post{
+    scroll-snap-align: start;
+    .avatar{
+        max-width: 30px;
+    }
+    .post-video-wrapper{
+        width: 100%;
+    }
+}

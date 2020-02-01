@@ -1,0 +1,15 @@
+<div class="page section mt-4">
+  <app-page-header  [pageHeaderData]="pageHeaderData" ></app-page-header>
+  <div class="row">
+      <div class="col-6">
+        <div class="posts-wrapper">
+          <ng-container *ngFor="let post of allPosts">
+            <app-post [post]="post"></app-post>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-6 right-section">
+        <app-edit-post></app-edit-post>
+      </div>
+  </div>
+</div>

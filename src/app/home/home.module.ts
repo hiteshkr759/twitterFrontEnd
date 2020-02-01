@@ -10,6 +10,10 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { PrivacyPolicesComponent } from './pages/privacy-polices/privacy-polices.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { HomeService } from './service/home.service';
+import { CallbackComponent } from './pages/callback/callback.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,11 +25,15 @@ import { RegisterComponent } from './pages/register/register.component';
     ContactUsComponent,
     PrivacyPolicesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PagenotfoundComponent,
+    CallbackComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     HomeRoutingModule
-  ]
+  ],
+  providers:[HomeService]
 })
 export class HomeModule { }

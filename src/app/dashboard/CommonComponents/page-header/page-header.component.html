@@ -1,0 +1,35 @@
+<!-- <div class="page-header shadow-sm p-3 mb-3 bg-white rounded d-flex justify-content-between">
+    <div class="label align-self-center">
+        <div class="m-0 page-label">
+           <h5>{{pageHeaderData.heading}}</h5>
+        </div>
+        <div *ngIf="pageHeaderData.body">
+            <p class="m-0">{{pageHeaderData.body}}</p>
+        </div>
+    </div>
+    <div class="label align-self-center" *ngIf="pageHeaderData.buttons && pageHeaderData.buttons.length">
+        <button class="ml-2" mat-raised-button *ngFor="let button of pageHeaderData.buttons" (click)="handleAction(button)">
+            {{button}}
+        </button>
+    </div>
+</div> -->
+
+<div class="card mb-3">
+  <div class="bg-holder d-none d-lg-block bg-card page-header"></div>
+  <!--/.bg-holder-->
+  <div class="card-body">
+    <div class="row d-flex justify-content-between">
+      <div class="col-lg-10">
+        <h3 class="mb-0">{{pageHeaderData.heading}}</h3>
+        <p class="my-1" *ngIf="pageHeaderData.body">
+          {{pageHeaderData.body}}
+        </p>
+      </div>
+      <div class="label align-self-center col text-right" *ngIf="pageHeaderData.buttons && pageHeaderData.buttons.length">
+          <button class="ml-" mat-raised-button *ngFor="let button of pageHeaderData.buttons" (click)="handleAction(button)">
+              {{button}}
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

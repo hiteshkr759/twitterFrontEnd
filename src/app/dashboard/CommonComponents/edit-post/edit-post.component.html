@@ -1,0 +1,64 @@
+<div class="card mb-3 new-post">
+	<div class="card-header bg-light">
+		<div class="media align-items-center">
+			<div class="avatar avatar-m">
+				<img class="rounded-circle avatar" src="https://pbs.twimg.com/profile_images/927241270975651840/xcbMX4Pp_bigger.jpg" alt="">
+			</div>
+			<div class="media-body ml-2">
+				<h5 class="mb-0 fs-0"> {{ editPost && editPost.id ?  'Edit Post' : 'Create Post' }} </h5>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-0">
+		<form [formGroup]="postForm"  (ngSubmit)="onPostSubmit()">
+			<textarea class="form-control border-0 rounded-0 resize-none" 
+			placeholder="What's happening?"
+			rows="4" 
+			formControlName="message"
+			></textarea>
+			<div class="row no-gutters justify-content-between p-3">
+				<div class="col-12">
+					<app-file-upload (onFileUpload)="handleFileUpload($event)"></app-file-upload>
+				</div>
+			</div>
+			<div class="row no-gutters justify-content-between py-0 px-3 button-wrapper" *ngIf="isScheduled">
+				<div class="col-12 d-flex">
+					<div class="col pl-0">
+						<div class="form-group">
+							<mat-datepicker #postDate></mat-datepicker>
+							<label for="post-date">Post Date</label>
+							<input class="form-control" formControlName="postDate" id="post-date" [matDatepicker]="postDate" type="text" placeholder="m/d/y" (click)="postDate.open()">
+						</div>
+					</div>
+					<div class="col pr-0">
+						<div class="form-group">
+							<label for="post-time">Post Time</label>
+							<input type="time" class="form-control" formControlName="postTime" id="post-time" placeholder="HH:MM" step="300">
+							<!-- <input class="form-control" id="post-date" [matDatepicker]="postDate" type="text" placeholder="d/m/y" readonly="readonly" (click)="postDate.open()"> -->
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="row no-gutters justify-content-between p-3 button-wrapper">
+					<div class="col">
+							<button class="btn btn-outline-secondary" type="reset">Reset</button>
+					</div>
+					<div class="col text-right">
+							<div class="btn-group">
+									<button class="btn btn-outline-success" type="button" (click)="handleSchedule()" >Schedule It</button>
+									<button class="btn btn-outline-primary" type="submit">{{isScheduled ? 'Schedule' : 'Post'}}</button>
+							</div>
+																					<!-- <dl-date-time-picker
+									startView="day"
+									maxView="year"
+									minView="minute"
+									minuteStep="5"
+									[(ngModel)]="selectedDate"
+							>
+							</dl-date-time-picker> -->
+					</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+<div class="media position-relative align-items-center mb-2">
+    <img class="d-flex align-self-center mr-2 rounded-circle" [src]="user.profile_image_url_https" alt="" width="50">
+    <div class="media-body">
+        <h6 class="fs-0 mb-0">
+            <a class="stretched-link" href="#!" [title]="'@'+user.screen_name">
+                {{user.name}}
+            </a>
+        </h6>
+        <p class="mt-1 mb-0">{{user.followers_count}} Follower  &bull; Following  {{user.friends_count}} </p>
+    </div>
+</div>
