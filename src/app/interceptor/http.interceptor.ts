@@ -26,7 +26,8 @@ export class AuthHttpInterceptor implements HttpInterceptor {
             const userDetail = JSON.parse(currentUser);
             request = request.clone({
                 setHeaders: {
-                    Authorization:`Bearer ${userDetail.token}`
+                    Authorization:`Bearer ${userDetail.token}`,
+                    currentLogedInTwitterUserId : userDetail.currentLogedInTwitterUserId ? userDetail.currentLogedInTwitterUserId : ''
                 }
             });
         }

@@ -28,10 +28,9 @@ export class CallbackComponent implements OnInit {
       
       console.log('CallbackResponse',response);
       localStorage.removeItem('oauthSecret');
-      const {twitter_screenName,twitter_id,token} = response;
+      const {currentLogedInTwitterUserId,token} = response;
       const userLoginDetail = {
-        twitter_screenName,
-        twitter_id,
+        currentLogedInTwitterUserId,
         token,
         loginUsing : 'Twitter'
       }
