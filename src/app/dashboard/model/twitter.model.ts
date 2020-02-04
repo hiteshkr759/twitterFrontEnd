@@ -12,6 +12,7 @@ export interface User {
     statuses_count?:number;
     profile_banner_url?:string;
     profile_image_url_https?:string;
+    following?:Boolean;
 }
 
 export interface Post{

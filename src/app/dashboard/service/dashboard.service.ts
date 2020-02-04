@@ -34,4 +34,9 @@ export class DashboardService {
     return this.api.getWithParam({},path);
   }
 
+  friendship(action:string,params : any){
+    const path : string  = `api/v1/twitter/${action}Now`;
+    return this.api.getWithParam(params,path); 
+  }
+
 }
