@@ -22884,3 +22884,16 @@ a.text-white:hover {
 	-ms-transform: translateY(-73%);
 	transform: translateY(-73%)
 }
+
+
+/* MAIN STYLE */
+
+button.mat-menu-item,
+button.mat-menu-trigger {
+	outline: none;
+}
+
+/* Header prople button menu popup*/
+.material-profile-popup-menu{
+	margin-top: 5px;
+}

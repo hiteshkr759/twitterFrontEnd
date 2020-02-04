@@ -58,6 +58,7 @@ export class HeaderComponent implements OnInit {
   loadLoginProfile(){
     this.dashboardService.loadLogedInUserTwitterProfile().subscribe(response => {
       this.logedInUser = response;
+      console.log('Loged In User Detail',this.logedInUser);
     });
   }
 
