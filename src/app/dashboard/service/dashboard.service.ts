@@ -39,4 +39,15 @@ export class DashboardService {
     return this.api.getWithParam(params,path); 
   }
 
+  unfollowAll(params : any){
+    const path:string = `api/v1/twitter/unfollow`;
+    return this.api.getWithParam(params,path);
+  }
+
+  followAll(params : any){
+    const path:string = `api/v1/twitter/follow`;
+    return this.api.getWithParam(params,path);
+  }
+
+
 }

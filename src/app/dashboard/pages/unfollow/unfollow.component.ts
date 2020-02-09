@@ -59,6 +59,12 @@ export class UnfollowComponent implements OnInit {
   }
 
   handleHeaderAction(buttonLabel : string){
+    // console.log('buttonLabel',buttonLabel);
+    // if(buttonLabel == 'Select All'){
+    //   this.pageHeaderData.buttons = ['Follow All']
+    // }else{
+
+    // }
     this.handleUnfollow();
   }
 
@@ -69,7 +75,12 @@ export class UnfollowComponent implements OnInit {
     }else{
       userUnfollowList = this.unfollowerList.map( (e : User) => e.id);
     }
-    console.log('Start following',userUnfollowList);
+    const params = {
+      userIds : userUnfollowList.join(',')
+    }
+    this.dashboardService.unfollowAll(params).subscribe(response => {
+      console.log('Response',response);
+    });
   }
 
 }

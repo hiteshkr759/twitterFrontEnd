@@ -82,7 +82,12 @@ export class FollowComponent implements OnInit {
     }else{
       userFollowList = this.followerList.map( (e : User) => e.id);
     }
-    console.log('Start following',userFollowList);
+    const params = {
+      userIds : userFollowList.join(',')
+    }
+    this.dashboardService.followAll(params).subscribe(response => {
+      console.log('Response',response);
+    });
   }
 
   handleProfileChecked(profileEvent : ProfileEvent){
