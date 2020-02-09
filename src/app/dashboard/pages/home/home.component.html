@@ -13,9 +13,9 @@
 						<div class="col-sm-6 col-md-4 mb-3" *ngFor="let user of interestedUsers | filterUser:wiseListUserIds as filteredWiseListUser" whiteListUser >
 							<app-profile-small [user]="user"> </app-profile-small>
 						</div>
-						<div *ngIf="filteredWiseListUser?.length == 0" class="col-12 text-center" >
+						<!-- <div *ngIf="filteredWiseListUser?.length == 0" class="col-12 text-center" >
 							No User Found
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -29,9 +29,9 @@
 						<div class="col-sm-6 col-md-4 mb-3" *ngFor="let user of interestedUsers | filterUser:whiteListUserIds as filteredWhiteListUser" #whiteListUserX>
 							<app-profile-small [user]="user"> </app-profile-small>
 						</div>
-						<div *ngIf="whiteListUsersElRef?.length == 0" class="col-12 text-center" >
+						<!-- <div *ngIf="whiteListUsersElRef?.length == 0" class="col-12 text-center" >
 							No User Found
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

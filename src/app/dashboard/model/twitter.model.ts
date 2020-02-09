@@ -13,6 +13,7 @@ export interface User {
     profile_banner_url?:string;
     profile_image_url_https?:string;
     following?:Boolean;
+    followed_by?:Boolean;
 }
 
 export interface Post{

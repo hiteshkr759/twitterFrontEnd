@@ -58,4 +58,18 @@ export class UnfollowComponent implements OnInit {
     this.pageHeaderData.buttons = [buttonLabel];
   }
 
+  handleHeaderAction(buttonLabel : string){
+    this.handleUnfollow();
+  }
+
+  handleUnfollow(){
+    let userUnfollowList = [];
+    if(this.selectedList.length > 0 ){
+      userUnfollowList = [...this.selectedList]
+    }else{
+      userUnfollowList = this.unfollowerList.map( (e : User) => e.id);
+    }
+    console.log('Start following',userUnfollowList);
+  }
+
 }

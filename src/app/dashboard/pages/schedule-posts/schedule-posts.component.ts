@@ -30,7 +30,7 @@ export class SchedulePostsComponent implements OnInit {
   loadAllPost(){
     this.allPosts = [{
       id:123,
-      message : 'Message',
+      status : 'Message',
       postdate: new Date(),
       authorName:'Hitesh Kumar',
       authorScreenName:'hiteshkr759',
@@ -38,11 +38,11 @@ export class SchedulePostsComponent implements OnInit {
     },
     {
       id:123,
-      message : 'Message 2',
+      status : 'Message 2',
       postdate: new Date(),
       authorName:'Hitesh Kumar',
       authorScreenName:'hiteshkr759',
-      isMultiMedia : true,
+      media : true,
       authorAvatarUrl :'https://pbs.twimg.com/profile_images/927241270975651840/xcbMX4Pp_bigger.jpg'
     }]
   }

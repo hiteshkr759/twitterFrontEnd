@@ -31,9 +31,9 @@
 	</div>
 	<div class="card-body">
 		<p class="mb-0">
-		{{post.message}}
+		{{post.status}}
 		</p>
-		<ng-container *ngIf="post.isMultiMedia">
+		<ng-container *ngIf="post.media">
 			<h2>Need to implments the logic for media</h2>
 			<video class="post-video-wrapper" controls>
 				<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
