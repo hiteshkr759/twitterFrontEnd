@@ -17,9 +17,9 @@ export interface User {
 
 export interface Post{
     id?: number;
-    message?:string;
-    isMultiMedia ?: boolean;
-    mediaUrl?:string;
+    status?:string;
+    media ?: boolean;
+    mediaFile?:FileList;
     postdate?:Date;
     authorName?:string;
     authorScreenName?:string;

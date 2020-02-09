@@ -14,7 +14,7 @@ export class EditPostComponent implements OnInit,OnDestroy {
   editPost :  Post;
   editingPost : boolean = false;
   postForm : FormGroup;
-  uploadedFiles : FileList[] = [];
+  uploadedFiles : FileList;
 
   isScheduled:boolean = false;
 
@@ -36,7 +36,7 @@ export class EditPostComponent implements OnInit,OnDestroy {
   inilizeForm(){
     this.postForm = new FormGroup({
       id : new FormControl('-1',[Validators.required]),
-      message : new FormControl('',[Validators.required]),
+      status : new FormControl('',[Validators.required]),
       postDate : new FormControl('',[]),
       postTime : new FormControl('',[])
     });
@@ -57,11 +57,18 @@ export class EditPostComponent implements OnInit,OnDestroy {
     console.log('Raw Form Data is submiiting',this.postForm.value);
     const postData : Post = {
       id : this.postForm.get('id').value,
-      message : this.postForm.get('message').value,
+      status : this.postForm.get('status').value,
     }
-    if( this.uploadedFiles.length > 0 ){
-      postData.isMultiMedia = true;
+    if(this.uploadedFiles && this.uploadedFiles.length > 0 ){
+      postData.media = true;
+      console.log('Upload',this.uploadedFiles);
+      postData.mediaFile = this.uploadedFiles;
     }
+    console.log('postData',postData);
+   // return null;
+    this.postService.directPost(postData).subscribe(response =>{
+      console.log('Response',response);
+    });
     console.log('Process Form Data is submiiting',postData);
   }
 
@@ -72,6 +79,8 @@ export class EditPostComponent implements OnInit,OnDestroy {
 
 
   handleFileUpload(fileList : FileList){
+    this.uploadedFiles = fileList;
+   // console.log('File List',fileList);
     //this.uploadedFiles = [...fileList] ;
   }
 

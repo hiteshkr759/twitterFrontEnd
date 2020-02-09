@@ -3,7 +3,7 @@ import { User } from '../../model/twitter.model';
 import {DashboardService } from '../../service/dashboard.service';
 
 export interface ProfileEvent {
-  userId:number;
+  userId:string;
   checkedStatus : boolean;
 }
 

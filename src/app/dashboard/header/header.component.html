@@ -10,7 +10,7 @@
                 <img [src]="logedInUser && logedInUser.profile_image_url_https" alt="" class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm border-0">
               </button>
               <mat-menu #menu="matMenu" class='material-profile-popup-menu'>
-                <button mat-menu-item  disabled>
+                <button *ngIf="logedInUser && logedInUser.name" mat-menu-item  disabled>
                   <!-- <mat-icon>dialpad</mat-icon> -->
                   <span>Welcome {{logedInUser.name}}</span>
                 </button>

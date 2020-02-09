@@ -76,6 +76,39 @@ export class ApiService {
     );
   }
 
+  postDataWithMedia(data: any,route: string){
+    const path = this.buildFullPath(route);
+    const headers = new HttpHeaders();
+    headers.append("Content-Type", "multipart/form-data");
+    headers.append("Accept", "application/json");
+    let formData = new FormData();
+    formData.append("media",  data.media);
+    formData.append("status", data.status);
+    if(data && data.mediaFile){
+      for(let i = 0 ; i < data.mediaFile.length; i++){
+        formData.append("mediaFile", data.mediaFile[i], data.mediaFile[i].name);
+      }
+    }
+    return (
+      this.http
+        // tslint:disable-next-line:object-literal-shorthand
+        .post(path, formData, { headers: headers, reportProgress: true })
+        .pipe(
+          map((response: any) => {
+            const result = response;
+            if (!result.status) {
+              this.handleValidationErrors();
+            }
+            return result;
+          }),
+          catchError((error: Response) => {
+            return this.handleExceptions(error);
+          })
+        )
+    );    
+  }
+
+
   postData(data: object, route: string) {
     const path = this.buildFullPath(route);
     return this.http.post(path, data).pipe(
@@ -116,7 +149,6 @@ export class ApiService {
     const headers = new HttpHeaders();
     headers.append("Content-Type", "multipart/form-data");
     headers.append("Accept", "application/json");
-
     return (
       this.http
         // tslint:disable-next-line:object-literal-shorthand

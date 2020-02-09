@@ -19,7 +19,7 @@ export class UnfollowComponent implements OnInit {
 
   unfollowerList : User[] = [];
 
-  selectedList : number[] = [];
+  selectedList : string[] = [];
 
   constructor(private readonly dashboardService : DashboardService) { }
 

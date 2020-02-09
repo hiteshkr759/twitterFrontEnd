@@ -23,7 +23,7 @@ export class FollowComponent implements OnInit {
 
   followerList : User[] = [];
 
-  selectedList : number[] = [];
+  selectedList : string[] = [];
 
   constructor(private readonly dashboardService : DashboardService) { }
 
